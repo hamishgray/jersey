@@ -1,0 +1,52 @@
+// general styles for the project that wouldn't be a reuseable component
+
+$color-history:  #E5C67B;
+$color-food:     #9B4A75;
+$color-people:   #4B5C8F;
+$color-nature:   #AECD84;
+
+.instagram {
+
+  &__by {
+    position: absolute;
+    top: $s0;
+    left: $s0;
+    display: flex;
+    flex: 1;
+    color: $white;
+    font-size: $s-1;
+    font-weight: 600;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 4px;
+      background-image: url('../img/icons/s-instagram.svg');
+      @include background-attributes;
+    }
+  }
+}
+
+
+.section {
+
+  &--history  { background-color: rgba($color-history,0.2); }
+  &--food     { background-color: rgba($color-food,0.2); }
+  &--people   { background-color: rgba($color-people,0.2); }
+  &--nature   { background-color: rgba($color-nature,0.2); }
+}
+
+
+.js-section-fade {
+  &.fade-ready {
+    margin-top: $s2;
+    opacity: 0;
+    transition: all 800ms ease;
+  }
+  &.fade-done {
+    margin-top: 0;
+    opacity: 1;
+  }
+}

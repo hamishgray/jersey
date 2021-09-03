@@ -1,0 +1,187 @@
+---
+layout: page
+id: overview
+nav: true
+nav-order: 1
+title: Overview
+
+page-nav:
+  - id: history
+    title: History
+  - id: food
+    title: Food
+  - id: people
+    title: People
+  - id: nature
+    title: Nature
+
+
+
+banner:
+  content: >
+    <div class="banner__title-image"></div>
+  title: The Great Late Escape
+
+
+
+intro: Autumn is calling - reconnect and rebalance with an effortless escape to Jersey. Around an hour away by air or a short ferry crossing, Jersey is wonderfully easy to get to, whilst still feeling like a bit of an adventure. Once there, discover a dramatic coastline, mile upon mile of peaceful country lanes, and a history brimming with fascinating stories. Throw yourself into the great outdoors and build up an appetite for award-winning local food, as fresh as the sea air that rolls in from the coast. Discover it this autumn, for a revitalising escape.
+
+
+
+sections:
+
+  - id: history
+    title: >
+      Immerse yourself in <strong>stories of the past</strong>
+    intro: You don’t have to scratch too far beneath the surface to experience Jersey’s rich and diverse past. The island’s unique history has been moulded over time by Ice Age visitors, conquering forces, and a fascinating mix of languages and local traditions. Experience major historical sites dating back thousands of years, explore World War II bunkers, ancient burial grounds, farmhouses, castles and caves. Jersey is ready to be revealed.
+    spotlight:
+      id:
+      link: https://www.instagram.com/p/CIbpX9UD4RD/
+      by: settlersstores
+      title: La Houge Bie
+      content: The autumn equinox, when the sun passes directly over the earth’s equator, is one of those magical times of year; occurring just twice each year, the result is a day and night of equal length. On this day, around a dozen people gather at sunrise in the ancient burial chamber at La Houge Bie, one of the ten oldest buildings in the world. Facing directly east, a beam of sunlight travels up the narrow passageway, illuminating the whole chamber. Soak up the magic of historic La Houge Bie for yourself. With the surrounding trees turning a dusty shade of orange and autumn light casting its golden glow over the site, it’s a special time of year to visit.
+
+  - id: food
+    title: >
+      Take a <strong>bite</strong> of Jersey’s fresh flavours
+    intro: As a small island famous for its food, Jersey’s bursting with flavour. And what better time to explore Jersey’s foodie delights than during the autumn, when the season’s bounty is at its best? Tuck into freshly caught chancre crab, stop by the stunning Central Market to pick up some locally grown veg and handmade delights, or treat yourself to a feast at one of the island’s fabulous restaurants. Don’t miss Tennerfest, the island’s much loved fixed-price food festival, in full flow over autumn. Jersey is full of passionate foodies and eating experiences so just make sure to bring a healthy appetite.
+    spotlight:
+      id:
+      link: https://www.instagram.com/p/CKED40GDZ51/
+      by: hollysmithphoto
+      title: No 10. Restaurant and Bar
+      content: No 10 is the brainchild of Jersey-born Joe Baker. You might recognise the young chef if you tuned in to watch The Great British Menu last year on BBC2. Joe is a true champion of the island’s local produce, making use of organic veg from the likes of Anneville Farm, locally-reared pork from John Hackett’s Farm in St. Brelade and razor clams foraged from the moonlike landscapes of the island’s south coast at low tide. With a cosy, candle-lit bar downstairs and a modern, relaxed restaurant upstairs, No 10 is the perfect spot to hunker down on an autumnal evening for a night of fine wine and delicious dining.
+
+  - id: people
+    title: >
+      Meet the <strong>people</strong> behind the place
+    intro: With its own peculiar customs, quirks, laws and traditions, Jersey is a surprising little island. What better way to soak up Jersey culture than meeting its wonderful people? Head down to St. Ouens with local legend Kazz Padir who will teach you how to safely identify the incredible variety of wild edible plants and seaweeds that you can find along Jersey’s shoreline or, follow in the footsteps of mammoth hunters with Nicky Mansell down at the island’s famous Palaeolithic site “La Cotte de St. Brelade.”
+    spotlight:
+      id:
+      link: https://www.instagram.com/p/B-sKz9EjsK9/
+      by: thecidermakerswife
+      title: Cider Making with The Cider Maker and his Wife
+      content: La Robeline Cider are proud of their local roots, planting orchards around the island each winter and using only the best apples - and nothing else! - to produce their award-winning Cidre de Jérri come the autumn. Richard and Sarah, affectionately known as ‘The Cider Maker and his Wife’ are welcoming you to join them this autumn as they press the fruit to extract the juice to make their scrumptious cider. In the 19th century Jersey cider was a favourite mealtime tipple, particularly amongst farmers, across the UK - only after the second world war did exports cease. Make sure to follow in the suit of your great grandparents and reward yourself with a cold one after your hard work!
+
+  - id: nature
+    title: >
+      Soak up the island’s <strong>natural beauty</strong>
+    intro: Jersey's landscapes come to life in the golden autumn light. Capture magical moments as you explore miles of stunning coastline and countryside within the Jersey National Park, on foot or two wheels, discovering the island’s rich culture. Rebalance with friends and family, watching the sun set on a perfect day.
+    spotlight:
+      id:
+      link: https://www.instagram.com/p/CFmxFTMJGof/
+      by: emmamarston1989
+      title: EVie Bikes
+      content: For an island of just nine by five miles, Jersey has over 500 miles of glorious country lanes to explore; and, undoubtedly, the best way to explore them is by bike. Use the EVie app to find an electric bike near you and you’ll soon be whizzing through tiny green lanes, riding past pretty granite farmhouses and cottages, or feeling the wind in your hair as you soak up the island’s dramatic coastline. With a little extra 'boost’ from your electric bike, you’ll easily be able to nip down (and back up!) into some of Jersey’s small, picturesque bays like Fliquet, La Coupe and Le Scez. Importantly, factor in a pit-stop and sample Jersey’s ‘legend-dairy’ ice cream!
+
+
+
+
+offers:
+  sheet: "jersey-all"
+  limit: 6
+
+
+---
+
+
+<div class="vpad--xxl bg--white">
+  <div class="container container--xxl text--center">
+    <p class="p--xxl">
+      {{page.intro}}
+    </p>
+  </div>
+</div>
+
+
+{% for section in page.sections %}
+<div class="wp" id="{{section.id}}"></div>
+<div class="vpad--xxxl bg--grey-lightest section--{{section.id}}">
+  <div class="container js-section-fade">
+
+    <div class="h h--lg text--center">{{section.title}}</div>
+
+    <div class="space--lg"></div>
+
+    <div class="row row--valign-center">
+      <div class="col col--6">
+        <a href="#image-link">
+          <div class="img img--3-2 rounded--md depth--md" style="background-image: url('{{site.img}}/sections/{{section.id}}/main.jpg');"></div>
+        </a>
+      </div>
+      <div class="col col--6">
+        <p class="p--xl">{{section.intro}}</p>
+      </div>
+    </div>
+
+    <div class="space--lg"></div>
+
+    <div class="container container--no-padding rounded--md depth--md bg--white">
+      <div class="row row--valign-center row--no-gutters">
+
+        <div class="col col--6 col--xxl-8">
+          <div class="boxpad--lg">
+            <div class="h text--upper text--wider text--bold">Spotlight on:</div>
+            <div class="space--xs"></div>
+            <div class="h h--xs text--bolder">{{section.spotlight.title}}</div>
+            <div class="space--xs"></div>
+            <p>{{section.spotlight.content}}</p>
+          </div>
+        </div>
+
+        <div class="col col--6 col--xxl-4">
+          <div class="boxpad--xxs">
+          <div class="img img--1-1 rounded--md instagram" style="background-image: url('{{site.img}}/sections/{{section.id}}/spotlight.jpg');">
+            <div class="instagram__by"> {{section.spotlight.by}}</div>
+            <a href="{{section.spotlight.link}}" class="img__link"></a>
+          </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endfor %}
+
+
+
+<div class="vpad--xxxxl theme--dark bg--img" style="background-image: url({{site.img}}/img.jpg);">
+  <div class="container container--xl text--center">
+    <h4 class="h h--lg text--bolder">Condor</h4>
+    <p class="p--lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam minus quod odit corporis perspiciatis laboriosam assumenda ex, quam cumque consequatur nisi esse earum odio aut, quo repudiandae magnam ipsum.</p>
+    <div class="space--sm"></div>
+    <a href="#" class="btn">Find out more</a>
+  </div>
+</div>
+
+
+
+<div class="vpad--xxl bg--grey-lightest">
+  <div class="width width--lg text--center">
+    <h2 class="h h--lg text--bolder">Jersey travel offers</h2>
+    <div class="space--xxs"></div>
+    <p class="p--lg">Find your perfect stay here. With incredible offers and savings, there’s never been a better time to book that restorative island escape. </p>
+  </div>
+  {% include offer/all-offers-dynamic.html sheet=page.offers.sheet limit=page.offers.limit %}
+
+  <!-- <div class="vpad--lg">
+    <div class="container">
+
+      <div class="img img--1-1 img--lg-16-9 img--xxl-21-9 rounded--md depth--md" style="background-image: url({{site.img}}/img.jpg);">
+        <div class="img__content text--center">
+          <div class="boxpad--md">
+            <h4 class="h h--xl text--bold">Condor</h4>
+            <p class="p--lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam minus quod odit corporis perspiciatis laboriosam assumenda ex, quam cumque consequatur nisi esse earum odio aut, quo repudiandae magnam ipsum.</p>
+            <div class="space--sm"></div>
+            <a href="#" class="btn">Find out more</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> -->
+  
+</div>
+{% include page/promo-offers.html %}

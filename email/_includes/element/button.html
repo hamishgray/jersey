@@ -1,0 +1,49 @@
+<!-- element/button.html -->
+
+{% include system/helpers.html %}
+
+{% assign link       = page.page-link %}
+{% assign label      = page.main-button-label %}
+{% assign align      = "center" %}
+{% assign scale       = "md" %}
+{% assign style      = "primary" %}
+
+
+{% if include.link %}
+  {% assign link = include.link %}
+{% endif %}
+
+{% if include.label %}
+  {% assign label = include.label %}
+{% endif %}
+
+{% if include.align %}
+  {% assign align = include.align %}
+{% endif %}
+
+{% if include.style %}
+  {% assign style = include.style %}
+{% endif %}
+
+{% if include.scale %}
+  {% assign scale = include.scale %}
+{% endif %}
+
+
+<table {{table.fluid}}>
+  <tr>
+    <td align="center">
+      <table {{table.default}} align="{{align}}" style="border-collapse: separate !important; border-spacing: 0;">
+        <tr>
+          <td align="center" class="" style="">
+            <a href="{{link}}" class="button-{{scale}}" style="{{button.base}} color: {{button.style.[style].text-color}}; font-size: {{default.button.font-size}}px; line-height: {{default.button.font-size}}px; background-color: {{button.style.[style].background}}; {{button.style.[style].css}} padding-top: {{default.button.padding}}px; padding-bottom: {{default.button.padding}}px; padding-left: {{default.button.padding | times: 2}}px; padding-right: {{default.button.padding | times: 2}}px; {{rounded.md}}">
+              {{label}}
+            </a>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+

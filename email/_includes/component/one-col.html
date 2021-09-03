@@ -1,0 +1,94 @@
+
+{% assign config           = include.content.config %}
+{% assign items            = include.content.items %}
+{% assign link             = page.page-link %}
+{% assign row-gutter       = "30" %}
+{% assign text-align       = "center" %}
+{% assign background-color = color.background.inner %}
+{% assign box-color        = color.background.box %}
+{% assign theme            = "light" %}
+
+
+
+{% if config.theme %}
+  {% assign theme = config.theme %}
+{% endif %}
+
+{% if config.background-color %}
+  {% assign background-color = config.background-color %}
+{% endif %}
+
+{% if config.box-color %}
+  {% assign box-color = config.box-color %}
+{% endif %}
+
+{% if config.align %}
+  {% assign text-align = config.align %}
+{% endif %}
+
+{% if config.row-gutter %}
+  {% assign row-gutter = config.row-gutter %}
+{% endif %}
+
+
+
+{% for item in items %}
+
+  {% if item.link %}
+    {% assign link = item.link %}
+  {% elsif config.link %}
+    {% assign link = config.link %}
+  {% else %}
+    {% assign link = page.page-link %}
+  {% endif %}
+
+  <!-- one-col.html -->
+  <table {{table.outer}}>
+  <tr>
+  <td align="center" bgcolor="{{background-color}}" style="{{spacing.gutter}}">
+  <!-- Component start -->
+
+  <!--[if (gte mso 9)|(IE)]>
+  <table align="center" border="0" cellspacing="0" cellpadding="0" width="{{layout.width.lg}}">
+  <tr>
+  <td align="center" valign="top" width="{{layout.width.lg}}">
+  <![endif]-->
+  <table {{table.inner}}>
+    <tr>
+      <td align="center" bgcolor="{{box-color}}" style="{{rounded.md}} {{depth.default}}">
+
+        <table {{table.default}}>
+          {% if item.image %}
+          <tr>
+            <td align="center">
+              <a href="{{link}}">
+                <img class="responsive-lg" src="{{page.img}}{{item.image}}" width="100%" style="display: block; border-top-left-radius: 3px; border-top-right-radius: 3px;{% unless item.content %} border-bottom-left-radius: 3px; border-bottom-right-radius: 3px;{% endunless %}" />
+              </a>
+            </td>
+          </tr>
+          {% endif %}
+          {% if item.content %}
+          <tr>
+            <td align="center" style="{{spacing.hpad.md}} {{spacing.vpad.md}}">
+              {% include component/_content.html content=item.content align=text-align theme=theme %}
+            </td>
+          </tr>
+          {% endif %}
+        </table>
+
+      </td>
+    </tr>
+  </table>
+  <!--[if (gte mso 9)|(IE)]>
+  </td>
+  </tr>
+  </table>
+  <![endif]-->
+  {% include element/space.html height=row-gutter %}
+
+  <!-- Component end -->
+  </td>
+  </tr>
+  </table>
+
+{% endfor %}

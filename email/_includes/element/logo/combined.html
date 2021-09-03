@@ -1,0 +1,23 @@
+<!-- element/logo/combined.html -->
+
+{% if include.logo-theme == "light" %}
+  {% assign divider-color = color.grey.dark %}
+  {% assign divider-rgba = "rgba(255,255,255,0.5)" %}
+{% else %}
+  {% assign divider-color = color.grey.lighter %}
+  {% assign divider-rgba = "rgba(0,0,0,0.25)" %}
+{% endif %}
+
+<table {{table.default}}>
+  <tr>
+    <td align="right" style="{{spacing.vpad.sm}}">
+      {% include element/logo/secret-escapes.html size="sm" logo-theme=include.logo-theme %}
+    </td>
+    <td align="center" width="22"></td>
+    <td align="center" width="1" bgcolor="{{divider-color}}" style="background-color: {{divider-rgba}};"></td>
+    <td align="center" width="22"></td>
+    <td align="left" style="{{spacing.vpad.sm}}">
+      {% include element/logo/partner.html logo-theme=include.logo-theme %}
+    </td>
+  </tr>
+</table>

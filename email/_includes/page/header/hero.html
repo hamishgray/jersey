@@ -1,0 +1,43 @@
+
+<!-- header/hero.html -->
+
+{% include system/helpers.html %}
+
+{% assign this             = include.content %}
+{% assign config           = this.config %}
+{% assign row-gutter       = "0" %}
+{% assign theme            = "dark" %}
+{% assign background-color = color.background.inner %}
+{% assign box-color        = color.background.box %}
+
+
+
+{% if config.background-color %}
+  {% assign background-color = config.background-color %}
+{% endif %}
+
+{% if config.box-color %}
+  {% assign box-color = config.box-color %}
+{% endif %}
+
+{% if config.theme == "light" %}
+  {% assign theme = "light" %}
+{% endif %}
+
+{% if config.row-gutter %}
+  {% assign row-gutter = config.row-gutter %}
+{% endif %}
+
+
+
+{% include page/header/logo.html theme=theme %}
+
+{% if this.title %}
+  {% include page/header/title.html content=this %}
+{% endif %}
+
+{% if this.image %}
+  {% include page/header/image.html content=this %}
+{% endif %}
+
+{% include element/space.html color=background-color height=row-gutter %}

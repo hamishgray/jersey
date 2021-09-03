@@ -1,0 +1,66 @@
+
+{% include system/helpers.html %}
+
+{% assign promo-height = "360" %}
+
+<!-- secret escapes promo -->
+<table {{table.outer}}>
+  <tr>
+    <!-- background image has to be the same height of the email with fallback typefaces for consistent rending in outlook -->
+    <td align="center" class="background-cover" bgcolor="{{color.black}}" background="http://image.email.secretescapes.com/lib/fe91127277660c7b71/m/8/se19..se-promo.jpg" style="background-position: top center; background-repeat: no-repeat;" height="{{promo-height}}" valign="middle">
+      <!--[if mso | ie]>
+      <v:image xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0; display: inline-block; width: {{layout.width.xl}}px; height: {{promo-height}}px;" src="http://image.email.secretescapes.com/lib/fe91127277660c7b71/m/8/se19..se-promo.jpg" />
+      <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: {{layout.width.xl}}px; height: {{promo-height}}px; border: 0;display:inline-block;position:absolute;">
+      <v:fill type="frame" size="100%,100%"  src="http://image.email.secretescapes.com/lib/fe91127277660c7b71/m/8/se19..se-promo.jpg" />
+      <v:textbox inset="0,0,0,0">
+      <![endif]-->
+      <table align="center" {{table.inner}}>
+        <tr>
+          <td align="center" height="{{promo-height}}" valign="middle" style="{{spacing.hpad.sm}}">
+
+            <!--[if (gte mso 9)|(IE)]>
+            <table align="center" border="0" cellspacing="0" cellpadding="0" width="{{layout.width.md}}">
+            <tr>
+            <td align="center" valign="top" width="{{layout.width.md}}">
+            <![endif]-->
+
+            <table {{table.default}} width="100%" width="{{layout.width.md}}" style="max-width: {{layout.width.md}}px;" class="responsive-md">
+              <tr>
+                <td align="center">
+
+                  {% include element/logo/icon.html %}
+
+                  <table {{table.default}}>
+                    <!-- Promo line -->
+                    <tr>
+                      <td colspan="5" align="center" style="{{default.title.core-xxl}} padding-top: {{spacing.md}}px; padding-bottom: {{spacing.sm}}px; color: {{color.white}};" class="title-core-xxl">
+                        {{locale.footer.promo}}
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- CTA -->
+                  {% assign button-link = locale.link.current-sales | append: site.ampscript.gastring %}
+                  {% include element/button.html label=locale.footer.promo-button link=button-link %}
+
+                </td>
+              </tr>
+            </table>
+            <!--[if (gte mso 9)|(IE)]>
+            </td>
+            </tr>
+            </table>
+            <![endif]-->
+
+          </td>
+        </tr>
+      </table>
+      <!--[if mso | ie]>
+      </v:textbox>
+      </v:fill>
+      </v:rect>
+      </v:image>
+      <![endif]-->
+    </td>
+  </tr>
+</table>

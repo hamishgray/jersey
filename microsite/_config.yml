@@ -1,0 +1,26 @@
+# Site settings
+title: Jersey
+locale: uk
+partner:
+  name: Jersey
+  link: "https://www.jersey.com/"
+
+description: >
+  Autumn is calling - reconnect and rebalance with an effortless escape to Jersey. Just under an hour away, discover a dramatic coastline, mile upon mile of peaceful country lanes, and a history brimming with fascinating stories. Throw yourself into the great outdoors and build up an appetite for award-winning local food, as fresh as the sea air that rolls in from the coast. Discover it this autumn, for a revitalising escape.
+
+
+
+# file paths
+url:     "https://mp.secretescapes.com" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog/
+img:     "_assets/img"
+css:     "_assets/css"
+js:      "_assets/js"
+
+# Build settings
+markdown: kramdown
+exclude: [node_modules, gulpfile.js, package.json, package-lock.json, js/script.js]
+keep_files: [_assets]
+sass:
+    sass_dir: css
+    style: compressed

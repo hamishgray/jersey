@@ -1,0 +1,36 @@
+<!-- element/location.html -->
+
+{% include system/helpers.html %}
+
+{% assign textcolor  = color.grey.dark %}
+{% assign text-align = "left" %}
+{% assign marker     = "se20..location.png" %}
+
+
+{% if include.align %}
+  {% assign text-align = include.align %}
+{% endif %}
+
+{% if include.color %}
+  {% assign textcolor = include.color %}
+{% elsif include.theme == 'dark' %}
+  {% assign textcolor = color.white %}
+  {% assign marker = "se20..location-wh.png" %}
+{% endif %}
+
+<table {{table.fluid}}>
+  <tr>
+    <td align="{{text-align}}" style="padding-bottom: 8px;">
+      <table {{table.default}} align="{{text-align}}">
+        <tr>
+          <td align="left" valign="middle" style="padding-right: 6px; vertical-align: middle;">
+            <img src="http://image.email.secretescapes.com/lib/fe91127277660c7b71/m/8/{{marker}}" width="11" style="display: block;">
+          </td>
+          <td align="left" valign="middle" class="text-sm" style="{{default.text.sm}} color: {{textcolor}}; padding-bottom: 0 !important;">
+            {{include.location}}
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

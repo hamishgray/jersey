@@ -1,0 +1,27 @@
+# google fonts
+
+- gfont: "Source+Sans+Pro"
+  name: "Source Sans Pro"
+  family: "Arial, sans-serif"
+  italics: true
+  weights:
+    - weight: 400
+    - weight: 600
+
+- gfont: "Source+Serif+Pro"
+  name: "Source Serif Pro"
+  family: "Georgia, serif"
+  italics: true
+  weights:
+    - weight: 400
+    - weight: 600
+    - weight: 700
+
+- gfont: "Montserrat"
+  name: "Montserrat"
+  family: "sans-serif"
+  italics:
+  weights:
+    - weight: 400
+    - weight: 600
+    - weight: 700

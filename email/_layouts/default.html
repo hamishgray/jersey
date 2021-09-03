@@ -1,0 +1,60 @@
+<!-- %%[
+/* ......................... AMPScript Variables ......................... */
+Set @user= [_SubscriberKey]
+Set @territory='UK'
+Set @CampaignCode = emailname_
+Set @Email = emailaddr
+Set @EncEmail = SHA1(LowerCase(@Email),"UTF-8")
+Set @Reference = AttributeValue("reference")
+Set @JobID = jobid
+Set @CampaignName = emailname_
+Set @now = FormatDate(Now(), "YYYY-MM-DD", "", "en-US")
+SET @authToken = concat(Base64Encode(@email), "..", @now)
+Set @encData=EncryptSymmetric(@authToken, "des;mode=ecb;padding=pkcs7", "EmailEncryptionKey", @null, @null, @null, @null, @null)
+Set @encData = replace(@encData, "+", "-")
+Set @encData = replace(@encData, "/", "_")
+
+Set @gaMedium = "email"
+Set @gaSource = "media-campaign"
+Set @gaCampaign = @CampaignName
+Set @gaContent = @JobID
+
+SET @gaString = Lowercase(concat("&utm_medium=",@gaMedium,"&utm_source=",@gaSource,"&utm_campaign=",@gaCampaign,"&utm_content=",@gaContent))
+SET @gaString = concat("auth=",@encData, "&noPasswordSignIn=true", @gaString)
+]%% -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+  {% include system/helpers.html %}
+  {% include system/head.html %}
+  <body>
+    {% include system/preheader.html %}
+    <custom name="opencounter" type="tracking"></custom>
+    <table {{table.fluid}}>
+      <tr>
+        <td align="center" bgcolor="{{color.background.outer}}">
+          <!--[if (gte mso 9)|(IE)]>
+          <table align="center" border="0" cellspacing="0" cellpadding="0" width="{{layout.width.xl}}">
+          <tr>
+          <td align="center" valign="top" width="{{layout.width.xl}}">
+          <![endif]-->
+          <table {{table.outer}}>
+          <tr>
+          <td align="center" bgcolor="{{color.background.inner}}">
+
+          {{ content }}
+          {% include page/footer/legal.html %}
+
+          </td>
+          </tr>
+          </table>
+          <!--[if (gte mso 9)|(IE)]>
+          </td>
+          </tr>
+          </table>
+          <![endif]-->
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

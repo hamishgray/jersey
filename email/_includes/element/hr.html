@@ -1,0 +1,42 @@
+<!-- element/hr.html -->
+
+{% if include.width %}
+  {% assign width = include.width %}
+{% else %}
+  {% assign width = 100 %}
+{% endif %}
+
+{% if include.height %}
+  {% assign height = include.height %}
+{% else %}
+  {% assign height = 60 %}
+{% endif %}
+
+{% assign align = "center" %}
+{% if include.align %}
+  {% assign align = include.align %}
+{% endif %}
+
+{% if include.color %}
+  {% assign color = include.color %}
+{% else %}
+  {% assign color = color.grey.lighter %}
+{% endif %}
+
+{% assign padding = height | divided_by: 2 %}
+
+<table {{table.fluid}}>
+  <tr>
+    <td align="{{align}}">
+      <table {{table.default}} width="{{width}}" height="{{height}}">
+        <tr>
+          <td align="center" height="{{padding}}" style="border-bottom: 1px solid {{color}}; line-height: 0;"></td>
+        </tr>
+        <tr>
+          <td align="center" height="{{padding}}" style="line-height: 0;"></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+

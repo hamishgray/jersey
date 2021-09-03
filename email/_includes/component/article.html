@@ -1,0 +1,131 @@
+
+{% assign config           = include.content.config %}
+{% assign items            = include.content.items %}
+{% assign link             = page.page-link %}
+{% assign row-gutter       = "30" %}
+{% assign content-width    = layout.width.lg | divided_by: 1.5 %}
+{% assign background-color = color.background.inner %}
+{% assign box-color        = color.background.box %}
+{% assign theme            = "light" %}
+
+
+
+{% if config.theme %}
+  {% assign theme = config.theme %}
+{% endif %}
+
+{% if config.background-color %}
+  {% assign background-color = config.background-color %}
+{% endif %}
+
+{% if config.box-color %}
+  {% assign box-color = config.box-color %}
+{% endif %}
+
+{% if config.row-gutter %}
+  {% assign row-gutter = config.row-gutter %}
+{% endif %}
+
+
+
+{% for item in items %}
+
+  {% if item.link %}
+    {% assign link = item.link %}
+  {% elsif config.link %}
+    {% assign link = config.link %}
+  {% else %}
+    {% assign link = page.page-link %}
+  {% endif %}
+
+  <!-- article.html -->
+  <table {{table.outer}}>
+  <tr>
+  <td align="center" bgcolor="{{background-color}}" style="{{spacing.gutter}}">
+  <!-- Component start -->
+
+  <!--[if (gte mso 9)|(IE)]>
+  <table align="center" border="0" cellspacing="0" cellpadding="0" width="{{layout.width.lg}}">
+  <tr>
+  <td align="center" valign="top" width="{{layout.width.lg}}">
+  <![endif]-->
+  <table {{table.inner}}>
+    <tr>
+      <td align="center" bgcolor="{{box-color}}" class="rounded-md" style="{{rounded.md}} {{depth.default}}">
+        <!-- T ONLINE -->
+        <!--[if false]>
+        <table width="{{layout.width.lg}}" cellpadding="0" cellspacing="0" border="0" role="presentation">
+        <tr>
+        <td valign="top" align="center" background="{{page.img}}{{item.image}}" height="370px" style="background-repeat: no-repeat;">
+        <![endif]-->
+
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width:{{layout.width.lg}}px;">
+          <tr>
+            <td valign="top" background="{{page.img}}{{item.image}}"  style="text-align: center; background-position: center center !important; background-size: cover !important; background-image:url({{page.img}}{{item.image}}); vertical-align:bottom;" height="370" align="center" class="se_boxshadow">
+              <!--[if mso | ie]>
+              <v:image xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0; display: inline-block; width: {{layout.width.lg}}px; height: 370px;" src="{{page.img}}{{item.image}}" />
+              <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:{{layout.width.lg}}px; height:370px; border: 0;display:inline-block;position:absolute;">
+              <v:fill type="frame" size="100%,100%"  src="{{page.img}}{{item.image}}" />
+              <v:textbox inset="0,0,0,0">
+              <![endif]-->
+
+                <div>
+                <!--[if mso | ie]>
+                <table align="right" border="0" cellspacing="0" cellpadding="0" width="{{content-width}}">
+                <tr>
+                <td align="left" valign="bottom">
+                <![endif]-->
+
+                  <table {{table.default}} align="right" width="100%" bgcolor="{{box-color}}" style="max-width:{{content-width}}px; border-top-left-radius:3px; background-color: rgba(255,255,255,0.9);">
+                    <tr>
+                      <td align="center">
+                        <table {{table.default}} align="center" width="90%">
+                          <tr>
+                            <td align="center" style="{{spacing.vpad.md}}">
+                              {% include component/_content.html content=item.content align="left" theme=theme %}
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+
+                <!--[if mso | ie]>
+                </td>
+                </tr>
+                </table>
+                <![endif]-->
+                </div>
+
+              <!--[if mso | ie]>
+              </v:textbox>
+              </v:fill>
+              </v:rect>
+              </v:image>
+              <![endif]-->
+            </td>
+          </tr>
+        </table>
+
+        <!--[if false]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+      </td>
+    </tr>
+  </table>
+  <!--[if mso | ie]>
+  </td>
+  </tr>
+  </table>
+  <![endif]-->
+  {% include element/space.html height=row-gutter %}
+
+  <!-- Component end -->
+  </td>
+  </tr>
+  </table>
+
+{% endfor %}

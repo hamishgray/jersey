@@ -1,0 +1,21 @@
+// moidifiers for the site footer theme, is passed as an option on include
+
+$footer-nav-color: $grey-darker;
+
+.site-nav {
+  &--footer {
+    background-color: rgba($footer-nav-color,1);
+    &:before { background-image: url("../img/icons/nav-arrow-footer.svg"); }
+  }
+  &--footer &__link {
+    color: $white;
+    &.is-current      { background-color: rgba($grey-darkest,.33); color: $white; }
+    .no-touch &:hover { background-color: rgba($grey-darkest,33); color: $white; }
+  }
+}
+
+.site-footer {
+  &__links {
+    padding-top: $s-2;
+  }
+}

@@ -1,0 +1,39 @@
+
+/*
+  if SCREEN WIDTH less than MD BREAKPOINT
+*/
+
+table[class*="responsive-md"]{
+  width: 100%!important;
+  max-width: 100%!important;
+  height: auto!important;
+}
+div[class*="responsive-md"]{
+  width: 100%!important;
+  max-width: 100%!important;
+  height: auto!important;
+}
+td[class*="responsive-md"]{
+  width: 100%!important;
+  max-width: 100%!important;
+  height: auto!important;
+}
+img[class*="responsive-md"]{
+  width: 100%!important;
+  max-width: 100%!important;
+  height: auto!important;
+  border-radius: 0 !important;
+}
+
+img[class="logo-icon__line"]{
+  display: none !important;
+}
+
+td[class*="offer-image"] {
+  height: 240px !important;
+}
+table[class*="offer-image__link"],
+td[class*="offer-image__link"],
+a[class*="offer-image__link"] {
+  height: 130px !important;
+}

@@ -1,0 +1,132 @@
+
+{% assign items            = include.content.items %}
+{% assign row-gutter       = "30" %}
+{% assign image-height     = "330" %}
+{% assign background-color = color.background.inner %}
+{% assign box-color        = color.background.box %}
+{% assign theme            = "light" %}
+
+
+
+{% for item in items %}
+
+  {% assign offer-link = item.link | append: site.ampscript.gastring %}
+
+  {% if item.attribute-refundable || item.attribute-flights || item.attribute-customisable  %}
+    {% assign has-attribute = true %}
+  {% endif %}
+
+  <!-- offer-one-col.html -->
+  <table {{table.outer}}>
+  <tr>
+  <td align="center" bgcolor="{{background-color}}" style="{{spacing.gutter}}">
+  <!-- Component start -->
+
+  <!--[if (gte mso 9)|(IE)]>
+  <table align="center" border="0" cellspacing="0" cellpadding="0" width="{{layout.width.lg}}">
+  <tr>
+  <td align="center" valign="top" width="{{layout.width.lg}}">
+  <![endif]-->
+  <table {{table.inner}}>
+    <tr>
+      <td align="center" bgcolor="{{box-color}}" class="rounded-md" style="{{rounded.md}} {{depth.default}}">
+
+
+        <table {{table.fluid}}>
+          <tr>
+            <td align="center" bgcolor="{{color.black}}" background="{{item.image}}" style="background-position: top center; background-repeat: no-repeat; background-size: cover; {{rounded.top.md}}" class="rounded-top-md offer-image" height="{{image-height}}">
+              <!--[if mso | ie]>
+              <v:image xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style=" border: 0; display: inline-block; width: {{layout.width.lg}}px; height: {{image-height}}px;" src="{{item.image}}" />
+              <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width: {{layout.width.lg}}px; height: {{image-height}}px; border: 0;display:inline-block;position:absolute;">
+              <v:fill type="frame" size="100%,100%"  src="{{item.image}}" />
+              <v:textbox inset="0,0,0,0">
+              <![endif]-->
+              <table align="center" {{table.fluid}}>
+                <tr>
+                  <td align="center">
+                    <!-- Link -->
+                    {% if has-attribute %}
+                      {% assign link-height = image-height | minus: 45 %}
+                    {% else %}
+                      {% assign link-height = image-height %}
+                    {% endif %}
+                    <table class="offer-image__link" {{table.fluid}} height="{{link-height}}">
+                      <tr>
+                        <td align="center" class="offer-image__link" height="{{link-height}}">
+                          <a href="{{offer-link}}" class="offer-image__link" style="height: {{link-height}}px; width: 100%; display: block;">&nbsp;</a>
+                        </td>
+                      </tr>
+                    </table>
+                    {% if has-attribute %}
+                    <!-- Bottom -->
+                    <table {{table.fluid}} height="45">
+                      <tr>
+                        <td width="{{spacing.sm}}"></td>
+                        <td align="center" valign="bottom" style="padding-bottom: {{spacing.sm}}px;">
+                          {% if item.attribute-refundable %}
+                            {% include element/badge.html attribute="refundable" %}
+                          {% elsif item.attribute-flights %}
+                            {% include element/badge.html attribute="flights" %}
+                          {% elsif item.attribute-customisable %}
+                            {% include element/badge.html attribute="customisable" %}
+                          {% endif %}
+                        </td>
+                      </tr>
+                    </table>
+                    {% endif %}
+                  </td>
+                </tr>
+              </table>
+              <!--[if mso | ie]>
+              </v:textbox>
+              </v:fill>
+              </v:rect>
+              </v:image>
+              <![endif]-->
+            </td>
+          </tr>
+          <tr>
+            <td align="left" style="{{spacing.hpad.md}} {{spacing.vpad.md}}">
+              {% include element/location.html location=item.location align="left" %}
+              {% include element/title.html title=item.title style="core-lg" align="left" %}
+              {% include element/space.html height="8" %}
+              {% include element/paragraph.html paragraph=item.description align="left" spacing="0" %}
+              {% include element/space.html height="12" %}
+              <!-- Price + CTA -->
+              <table {{table.fluid}}>
+                <tr>
+                  <td align="left">
+                    <table {{table.fluid}}>
+                      <tr>
+                        <td align="left" class="text-md" style="{{default.text.md}} color: {{color.grey.dark}};">
+                          {{locale.offer.from}} <span style="font-weight: 700; font-size: 20px; color: {{color.primary.default}};">{{locale.offer.currency}}{{item.price}}</span> {{item.price-description}}
+                        </td>
+                        <td style="font-size:1px;" width="15"></td>
+                        <td align="right">
+                          {% include element/button.html link=offer-link label=locale.offer.cta align="right" %}
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+  </table>
+  <!--[if (gte mso 9)|(IE)]>
+  </td>
+  </tr>
+  </table>
+  <![endif]-->
+  {% include element/space.html height=row-gutter %}
+
+  <!-- Component end -->
+  </td>
+  </tr>
+  </table>
+
+{% endfor %}

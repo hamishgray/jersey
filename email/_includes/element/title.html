@@ -1,0 +1,32 @@
+<!-- element/title.html -->
+
+{% include system/helpers.html %}
+
+{% assign align      = "center" %}
+{% assign style      = "default" %}
+{% assign textcolor  = color.grey.darker %}
+
+{% if include.align %}
+  {% assign align = include.align %}
+{% endif %}
+
+{% if include.style %}
+  {% assign style = include.style %}
+{% endif %}
+
+{% if include.color %}
+  {% assign textcolor = include.color %}
+{% elsif include.theme == 'dark' %}
+  {% assign textcolor = color.white %}
+{% endif %}
+
+<table {{table.fluid}}>
+  <tr>
+    <td
+      align="{{align}}"
+      class="title{% if include.style %}-{{include.style}}{% endif %}"
+      style="{{default.title.[style]}} color: {{textcolor}}; {% if forloop.last %}padding-bottom: 0 !important;{% endif %} {% unless forloop.length > 0 %}padding-bottom: 0 !important;{% endunless %}">
+      {{include.title}}
+    </td>
+  </tr>
+</table>

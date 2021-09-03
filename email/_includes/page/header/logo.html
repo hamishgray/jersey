@@ -1,0 +1,43 @@
+
+<!-- header/logo.html -->
+
+{% include system/helpers.html %}
+
+
+{% if include.theme == 'dark' %}
+  {% assign logo-theme = 'light' %}
+  {% assign background = color.black %}
+{% else %}
+  {% assign logo-theme = 'dark' %}
+  {% assign background = color.white %}
+{% endif %}
+
+<table {{table.outer}}>
+  <tr>
+    <td align="center" bgcolor="{{background}}">
+      <!--[if (gte mso 9)|(IE)]>
+      <table align="center" border="0" cellspacing="0" cellpadding="0" width="{{layout.width.lg}}">
+      <tr>
+      <td align="center" valign="top" width="{{layout.width.lg}}">
+      <![endif]-->
+      <table {{table.inner}}>
+        <tr>
+          {% if site.partner %}
+            <td align="center" style="{{spacing.vpad.md}} {{spacing.hpad.sm}}" class="header-padding">
+              {% include element/logo/combined.html logo-theme=logo-theme %}
+            </td>
+          {% else %}
+            <td align="center" style="{{spacing.vpad.md}} {{spacing.hpad.sm}}" class="header-padding">
+              {% include element/logo/secret-escapes.html size="lg" logo-theme=logo-theme %}
+            </td>
+          {% endif %}
+        </tr>
+      </table>
+      <!--[if (gte mso 9)|(IE)]>
+      </td>
+      </tr>
+      </table>
+      <![endif]-->
+    </td>
+  </tr>
+</table>

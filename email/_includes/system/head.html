@@ -1,0 +1,113 @@
+<head>
+
+  {% include system/helpers.html %}
+
+  <title>{{ page.subject-line }}</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="format-detection" content="date=no">
+  <meta name="format-detection" content="address=no">
+  <meta name="format-detection" content="email=no">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light dark only">
+  <meta name="supported-color-schemes" content="light dark only">
+
+  {% capture googlefonts %}
+    {% for font in foundations.fonts %}
+      {{font.gfont}}
+
+      {% if font.weights %}
+        {% if font.italics %}
+          :ital,wght@
+          {% for weight in font.weights %}
+            0,{{weight.weight}};
+          {% endfor %}
+          {% for weight in font.weights %}
+            1,{{weight.weight}}{% unless forloop.last %};{% endunless %}
+          {% endfor %}
+
+        {% else %}
+          :wght@
+          {% for weight in font.weights %}
+            {{weight.weight}}{% unless forloop.last %};{% endunless %}
+          {% endfor %}
+
+        {% endif %}
+      {% endif %}
+
+      {% unless forloop.last %}&family={% endunless %}
+    {% endfor %}
+  {% endcapture %}
+  <link href='https://fonts.googleapis.com/css2?family={{googlefonts|strip_newlines|remove:" "}}&display=swap' rel='stylesheet'>
+
+  <!-- // FIX: DPI Scaling in Outlook 2007-2013 -->
+  <!--[if gte mso 9]><xml>
+   <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+   </o:OfficeDocumentSettings>
+  </xml><![endif]-->
+
+  <style type="text/css">
+
+    {% for font in foundations.fonts %}
+    [style*="{{font.name}}"] { font-family: '{{font.name}}', {{font.family}} !important; }
+    {% endfor %}
+
+    {% include system/css/reset.css %}
+
+    /*
+      MEDIA QUERIES
+      Responsive layouts based on classes
+    */
+    @media (max-width: {{layout.breakpoints.md}} ) {
+      {% capture md-scss %}
+        {% include system/css/responsive-md.scss %}
+      {% endcapture %}
+      {{ md-scss | scssify }}
+    }
+
+    @media (max-width: {{layout.breakpoints.lg}} ) {
+      {% capture lg-scss %}
+        {% include system/css/responsive-lg.scss %}
+      {% endcapture %}
+      {{ lg-scss | scssify }}
+    }
+
+    @media (max-width: {{layout.breakpoints.xl}} ) {
+      {% capture xl-scss %}
+        {% include system/css/responsive-xl.scss %}
+      {% endcapture %}
+      {{ xl-scss | scssify }}
+    }
+
+    /*
+      PROGRESSIVE ENHANCEMENT
+      For large screens and devices that support media queries
+    */
+    @media (min-width: {{layout.breakpoints.lg}} ) {
+      /* Typography */
+      {% for item in typography %}
+        td[class*="{{item[0]}}"] { {{item[1]}} }
+      {% endfor %}
+      /* Buttons */
+      {% for item in button.scale %}
+        a[class*="button-{{item[0]}}"] {
+          padding: {{item[1].padding}}px {{item[1].padding | times: 2}}px !important;
+          font-size: {{item[1].font-size}}px !important;
+          line-height: {{item[1].font-size}}px !important;
+        }
+      {% endfor %}
+      /* Logos */
+      img[class="logo-se-lg"]    { width: 220px; }
+      img[class="logo-se-md"]    { width: 180px; }
+      img[class="logo-se-sm"]    { width: 150px; }
+      img[class="logo-se"]       { width: 180px; }
+      img[class="logo-partner"]  { width: {{site.partner.logo-width}}px; }
+    }
+
+  </style>
+
+</head>

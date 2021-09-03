@@ -1,0 +1,33 @@
+<!-- element/paragraph.html -->
+
+{% include system/helpers.html %}
+
+{% assign align      = "center" %}
+{% assign style      = "default" %}
+{% assign textcolor  = color.grey.dark %}
+
+{% if include.spacing %}
+  {% assign paragraph-spacing = include.spacing %}
+{% endif %}
+
+{% if include.align %}
+  {% assign align = include.align %}
+{% endif %}
+
+{% if include.style %}
+  {% assign style = include.style %}
+{% endif %}
+
+{% if include.color %}
+  {% assign textcolor = include.color %}
+{% elsif include.theme == 'dark' %}
+  {% assign textcolor = color.white %}
+{% endif %}
+
+<table {{table.fluid}}>
+  <tr>
+    <td align="{{align}}" class="text{% if include.style %}-{{include.style}}{% endif %}" style="{{default.text.[style]}} color: {{textcolor}}; {% if forloop.last %}padding-bottom: 0 !important;{% endif %} {% unless forloop.length > 0 %}padding-bottom: 0 !important;{% endunless %}{% if paragraph-spacing %}padding-bottom: {{paragraph-spacing}}px !important;{% endif %}">
+      {{include.paragraph}}
+    </td>
+  </tr>
+</table>

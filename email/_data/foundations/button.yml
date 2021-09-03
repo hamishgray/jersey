@@ -1,0 +1,56 @@
+
+base: "display: inline-block; text-decoration: none; text-transform: uppercase; text-align: center; font-weight: 600; font-family: Helvetica, Arial, sans-serif, 'Source Sans Pro'; letter-spacing: .1em;"
+
+style:
+  default:
+    text-color: "#ffffff"
+    background: "#FA8C38"
+    css: "background: linear-gradient(180deg, #FF872C 12.52%, #F36900 87.48%);"
+
+  primary:
+    text-color: "#ffffff"
+    background: "#FA8C38"
+    css: "background: linear-gradient(180deg, #FF872C 12.52%, #F36900 87.48%);"
+
+  secondary:
+    text-color: "#ffffff"
+    background: "#00818F"
+    css: "background: linear-gradient(180deg, #2194A1 12.52%, #0C7F8C 87.48%);"
+
+  light:
+    text-color: "#1E1F26"
+    background: "#D7D8DD"
+
+  partner:
+    text-color: "#ffffff"
+    background: "#DB1726"
+
+  outline:
+    text-color: "#1E1F26"
+    background: "#ffffff"
+    css: "border: 1px solid #43444C;"
+
+  offer-price:
+    text-color: "#ffffff"
+    background: "#FA8C38"
+    css: "background: linear-gradient(180deg, #FF872C 12.52%, #F36900 87.48%); text-transform: none; letter-spacing: 0;"
+
+
+
+
+scale:
+  xs:
+    font-size:  "13"
+    padding:    "10"
+  sm:
+    font-size:  "14"
+    padding:    "14"
+  md:
+    font-size:  "16"
+    padding:    "16"
+  lg:
+    font-size:  "18"
+    padding:    "18"
+  xl:
+    font-size:  "18"
+    padding:    "20"

@@ -1,0 +1,28 @@
+---
+layout: default
+---
+{% include system/helpers.html %}
+
+{% include page/header/logo.html theme="white" %}
+
+<table {{table.outer}}>
+  <tr>
+    <td align="center" bgcolor="{{color.background.box}}">
+
+      <table {{table.inner}}>
+        <tr>
+          <td align="center">
+
+            {% include component/_content.html content=page.main %}
+            {% include element/space.html height=spacing.lg %}
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+{% include page/footer/best-wishes.html %}
+{% include page/footer/quicklinks.html %}
