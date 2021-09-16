@@ -10,7 +10,7 @@ ampscript:
   view-online: "%%view_email_url%%"
 
 partner:
-  name: Partner Name
-  link: "#partner-link"
-  logo-width: 48
-  logo-min-width: 36 # mobile & fallback
+  name: Jersey
+  link: "https://www.jersey.com/"
+  logo-width: 140
+  logo-min-width: 110 # mobile & fallback

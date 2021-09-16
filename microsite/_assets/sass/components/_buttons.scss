@@ -43,6 +43,11 @@ $scale-xl: 17px;
     @include gradient($secondary-medium,darken($secondary-medium,8));
     &:hover, &:focus { background: darken($secondary-medium,8);}
   }
+  &--condor {
+    $condor: #c39;
+    background: $condor;
+    &:hover, &:focus { background: darken($condor,8);}
+  }
   &--outline {
     color: $grey-darkest;
     background: transparent;

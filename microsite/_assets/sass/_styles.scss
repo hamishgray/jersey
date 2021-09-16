@@ -50,3 +50,25 @@ $color-nature:   #AECD84;
     opacity: 1;
   }
 }
+
+
+.condor {
+  &__title {
+    color: #c39;
+  }
+  &__logo {
+    margin: auto;
+    width: 60%;
+    max-width: 260px;
+    background-image: url('../img/sections/condor/logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      padding-top: 26.87%;
+    }
+  }
+}
