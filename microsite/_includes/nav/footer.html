@@ -13,7 +13,7 @@
           {% include components/logo-se.html placement="footer" %}
         </div>
         <div class="col col--6 site-footer__partnership">
-          <span class="site-footer__partnership-text">{{locale.in-partnership}}</span>
+          <!-- <span class="site-footer__partnership-text">{{locale.in-partnership}}</span> -->
           {% include components/logo-partner.html placement="footer" %}
         </div>
       </div>
@@ -24,7 +24,7 @@
       <!-- NAV -->
       <div class="row">
         <div class="col col--4">
-          <h5 class="h h--core h--xxs">{{locale.footer.nav-col-1.title}}</h5>
+          <h5 class="h h--core h--xxs text--bolder">{{locale.footer.nav-col-1.title}}</h5>
           <ul class="site-footer__links">
             {% for item in locale.footer.nav-col-1.links %}
             <li><a href="{{item.link}}">{{item.label}}</a></li>
@@ -32,7 +32,7 @@
           </ul>
         </div>
         <div class="col col--4">
-          <h5 class="h h--core h--xxs">{{locale.footer.nav-col-2.title}}</h5>
+          <h5 class="h h--core h--xxs text--bolder">{{locale.footer.nav-col-2.title}}</h5>
           <ul class="site-footer__links">
             {% for item in locale.footer.nav-col-2.links %}
             <li><a href="{{item.link}}">{{item.label}}</a></li>

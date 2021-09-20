@@ -11,7 +11,11 @@
     font-weight: 400;
     font-size: 90%;
     background-color: $grey-darkest;
-    & a[href]:not([class]) { color: $grey-lightest; }
+    & a[href]:not([class]) {
+      color: $grey-lightest;
+      text-decoration: none;
+      font-weight: 400;
+    }
     & hr {
       background-color: $grey-dark;
     }

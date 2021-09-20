@@ -62,7 +62,7 @@ sections:
     spotlight:
       instagram: https://www.instagram.com/p/B-sKz9EjsK9/
       by: thecidermakerswife
-      title: Cider Making with The Cider Maker and his Wife
+      title: Cider Making with The Cider Maker & his Wife
       link: https://www.larobelinecider.je/
       content: >
         La Robeline Cider are proud of their local roots, planting orchards around the island each winter and using only the best apples - and nothing else! - to produce their award-winning Cidre de Jérri come the autumn. Richard and Sarah, affectionately known as ‘The Cider Maker and his Wife’ are welcoming you to join them this autumn as they press the fruit to extract the juice to make their scrumptious cider. In the 19th century Jersey cider was a favourite mealtime tipple, particularly amongst farmers, across the UK - only after the second world war did exports cease. Make sure to follow in the suit of your great grandparents and reward yourself with a cold one after your hard work!
@@ -109,10 +109,10 @@ offers:
     <div class="space--lg"></div>
 
     <div class="row row--valign-center">
-      <div class="col col--6">
+      <div class="col col--xl-6">
         <div class="img img--3-2 rounded--md depth--md" style="background-image: url('{{site.img}}/sections/{{section.id}}/main.jpg');"></div>
       </div>
-      <div class="col col--6">
+      <div class="col col--xl-6">
         <p class="p--xl">{{section.intro}}</p>
       </div>
     </div>
@@ -120,9 +120,22 @@ offers:
     <div class="space--lg"></div>
 
     <div class="container container--no-padding rounded--md depth--md bg--white">
-      <div class="row row--valign-center row--no-gutters">
+      <div class="row row--valign-center row--no-gutters row--reverse">
 
-        <div class="col col--6 col--xxl-8">
+        <div class="col col--xl-4">
+          <div class="boxpad--xxs">
+          <div class="img img--1-1 rounded--md instagram" style="background-image: url('{{site.img}}/sections/{{section.id}}/spotlight.jpg');">
+            {% if section.spotlight.by %}
+              <div class="instagram__by"> {{section.spotlight.by}}</div>
+            {% endif %}
+            {% if section.spotlight.instagram %}
+              <a href="{{section.spotlight.link}}" class="img__link"></a>
+            {% endif %}
+          </div>
+          </div>
+        </div>
+
+        <div class="col col--xl-8">
           <div class="boxpad--lg">
             <div class="h text--upper text--wider text--bold">Spotlight on:</div>
             <div class="space--xs"></div>
@@ -133,19 +146,6 @@ offers:
               <div class="space--sm"></div>
               <a href="{{section.spotlight.link}}" target="_blank" class="btn btn--sm">Read more</a>
             {% endif %}
-          </div>
-        </div>
-
-        <div class="col col--6 col--xxl-4">
-          <div class="boxpad--xxs">
-          <div class="img img--1-1 rounded--md instagram" style="background-image: url('{{site.img}}/sections/{{section.id}}/spotlight.jpg');">
-            {% if section.spotlight.by %}
-              <div class="instagram__by"> {{section.spotlight.by}}</div>
-            {% endif %}
-            {% if section.spotlight.instagram %}
-              <a href="{{section.spotlight.link}}" class="img__link"></a>
-            {% endif %}
-          </div>
           </div>
         </div>
 
@@ -177,11 +177,15 @@ offers:
 
 
 <div class="vpad--xxl bg--grey-lightest">
-  <div class="width width--lg text--center">
-    <h2 class="h h--lg text--bolder">Jersey travel offers</h2>
-    <div class="space--xxs"></div>
-    <p class="p--lg">Find your perfect stay here. With incredible offers and savings, there’s never been a better time to book that restorative island escape. </p>
+  <div class="container">
+    <div class="width width--lg text--center">
+      <h2 class="h h--lg text--bolder">Jersey travel offers</h2>
+      <div class="space--xxs"></div>
+      <p class="p--lg">Find your perfect stay here. With incredible offers and savings, there’s never been a better time to book that restorative island escape. </p>
+      <div class="space--xl"></div>
+    </div>
+    {% include offer/all-offers-dynamic.html sheet=page.offers.sheet limit=page.offers.limit %}
   </div>
-  {% include offer/all-offers-dynamic.html sheet=page.offers.sheet limit=page.offers.limit %}
 </div>
+
 {% include page/promo-offers.html %}
