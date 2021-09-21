@@ -12,10 +12,10 @@ description: >
 
 # file paths
 url:     "https://mp.secretescapes.com" # the base hostname & protocol for your site
-baseurl: "" # the subpath of your site, e.g. /blog/
-img:     "_assets/img"
-css:     "_assets/css"
-js:      "_assets/js"
+baseurl: "/uk/2021/jersey" # the subpath of your site, e.g. /blog/
+img:     "/uk/2021/jersey/_assets/img"
+css:     "/uk/2021/jersey/_assets/css"
+js:      "/uk/2021/jersey/_assets/js"
 
 # Build settings
 markdown: kramdown
